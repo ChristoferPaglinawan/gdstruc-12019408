@@ -17,12 +17,12 @@ public class Main {
         numbers[8] = 26;
         numbers[9] = 13;
 
-        System.out.println("Before Bubble Sort:");
+        System.out.println("Before Selection Sort:");
         printArrayElements(numbers);
 
-        bubbleSort(numbers);
+        selectionSort(numbers);
 
-        System.out.println("\n\nAfter Bubble Sort:");
+        System.out.println("\n\nAfter Selection Sort:");
         printArrayElements(numbers);
     }
 
@@ -32,13 +32,33 @@ public class Main {
         {
            for (int i = 0; i < lastSortedIndex; i++)
            {
-               if (arr[i] > arr[i + 1])
+               if (arr[i] < arr[i + 1])
                {
                    int temp = arr[i];
                    arr[i] = arr[i + 1];
                    arr[i + 1] = temp;
                }
            }
+        }
+    }
+
+    private static void selectionSort(int[] arr)
+    {
+        for (int lastSortedIndex = arr.length - 1; lastSortedIndex > 0; lastSortedIndex--)
+        {
+            int largestIndex = 0;
+
+            for (int i = 1; i <= lastSortedIndex; i++)
+            {
+                if (arr[i] < arr[largestIndex])
+                {
+                    largestIndex = i;
+                }
+            }
+
+            int temp = arr[lastSortedIndex];
+            arr[lastSortedIndex] = arr[largestIndex];
+            arr[largestIndex] = temp;
         }
     }
 
