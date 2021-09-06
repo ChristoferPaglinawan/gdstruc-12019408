@@ -44,24 +44,28 @@ public class Main {
 
     private static void selectionSort(int[] arr)
     {
-        for (int lastSortedIndex = arr.length - 1; lastSortedIndex > 0; lastSortedIndex--)
+        for (int i = 0; i < arr.length; i++)
         {
-            int largestIndex = 0;
+            int minimumSelectedValue = arr[i];
+            int minimumIndex = i;
 
-            for (int i = 1; i <= lastSortedIndex; i++)
+            for (int j = i; j < arr.length; j++)
             {
-                if (arr[i] < arr[largestIndex])
+                if (arr[j] > minimumSelectedValue)
                 {
-                    largestIndex = i;
+                    minimumSelectedValue = arr[j];
+                    minimumIndex = j;
                 }
             }
+            if (minimumSelectedValue > arr[i])
+            {
+                int temp = arr[i];
+                arr[i] = arr[minimumIndex];
+                arr[minimumIndex] = temp;
+            }
 
-            int temp = arr[lastSortedIndex];
-            arr[lastSortedIndex] = arr[largestIndex];
-            arr[largestIndex] = temp;
         }
     }
-
     private static void printArrayElements(int[] arr)
     {
         for (int j : arr) {
