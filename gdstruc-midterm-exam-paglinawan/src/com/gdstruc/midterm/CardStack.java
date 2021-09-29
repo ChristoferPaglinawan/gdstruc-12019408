@@ -8,23 +8,17 @@ public class CardStack {
     public int deckSize = 0;
     public int discSize = 0;
 
-    public CardStack()
-    {
+    public CardStack() {
         stack = new LinkedList<Card>();
     }
 
-    public void setDeck(CardStack deck)
-    {
-
-    }
     public void push(Card card) // add cards
     {
         stack.push(card);
         deckSize++;
     }
 
-    public boolean isEmpty()
-    {
+    public boolean isEmpty() {
         return stack.isEmpty();
     }
 
@@ -35,8 +29,7 @@ public class CardStack {
         return stack.pop();
     }
 
-    public Card peek()
-    {
+    public Card peek() {
         return stack.peek();
     }
 
@@ -48,13 +41,11 @@ public class CardStack {
         return discSize;
     }
 
-    public void printStack()
-    {
+    public void printStack() {
         ListIterator<Card> iterator = stack.listIterator();
 
         System.out.println();
-        while (iterator.hasNext())
-        {
+        while (iterator.hasNext()) {
             System.out.println(iterator.next());
         }
     }
