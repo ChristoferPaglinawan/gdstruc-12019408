@@ -6,6 +6,7 @@ import java.util.Random;
 
 public class Main {
 
+
     public static int randomNumberGenerator(int deckValue)
     {
         Random random = new Random();
